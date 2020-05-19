@@ -1,0 +1,71 @@
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  width: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.cascader-style {
+  width: 100px;
+}
+.index-menu,
+.index-menu:hover {
+  width: 55%;
+  display: inline-block !important;
+  margin: 0 10px;
+  .el-input__inner {
+    background-color: #111739;
+    border: 1px solid #60c1de;
+    color: #fff;
+  }
+  .el-input__inner:hover {
+    border: 1px solid #60c1de;
+  }
+  .menu-name {
+    font-size: 13px;
+    color: #60c1de;
+  }
+}
+.graph-index {
+  background: #111739;
+  .el-dialog{
+    background-color: rgba(11, 15, 42, 0.76) !important;
+    color: white;
+  }
+  .el-dialog__title{
+    color: white;
+  }
+  .graph-left{
+    width: 20%;
+    height: 100%;
+    margin-left: 25px;
+    float: left;
+  }
+  .graph-center{
+    width: 55%;
+    height: 100%;
+    margin-left: 25px;
+    float: left;
+  }
+  .graph-right{
+    width: 20%;
+    height: 100%;
+    margin-left: 25px;
+    float: left;
+  }
+}

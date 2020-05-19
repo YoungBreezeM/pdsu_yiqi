@@ -1,0 +1,16 @@
+.login{
+  width: 100%;
+  background: #0b0f2a;
+  .el-input__inner{
+    background: #0b0f2a;
+    color: cyan;
+    border: 1px solid cyan;
+  }
+  .el-input__inner:focus{
+    border: 1px solid #2c38ff;
+  }
+  #particles-js{
+    width: 100%;
+    height: 100%;
+  }
+}
