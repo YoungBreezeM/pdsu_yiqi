@@ -15,14 +15,14 @@ devServeConfig: &devServeConfig
   https: false # 是否开启https
   open: false #配置自动启动浏览器  http:#172.11.11.22:8888/rest/XX/
   hotOnly: true # 热更新
-#  proxy:
-#    /api:
-#      target: 'http://127.0.0.1:8080'
-#      ws: false
-#      changeOrigin: true
-#      pathRewrite: {
-#        '^/api': '/'
-#      }
+  proxy:
+    /api:
+      target: 'http://211.69.16.119:8080/View'
+      ws: false
+      changeOrigin: true
+      pathRewrite: {
+        '^/api': '/'
+      }
 
    # 配置转发请求服务器件
   disableHostCheck: true

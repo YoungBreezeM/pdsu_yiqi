@@ -68,4 +68,13 @@ a:active {
     margin-left: 25px;
     float: left;
   }
+  .el-tabs__item{
+    color: #4de2ff;
+  }
+  .el-tabs__active-bar{
+    background-color: rgba(31,223,37,0.82);
+  }
+  .el-tabs__nav-wrap::after{
+    background-color: #4de2ff;
+  }
 }

@@ -6,9 +6,14 @@ import GraphIndex from "@/pages/graph/view/GraphIndex";
 let routes = [
     {
         path: "/",
-        name: 'graph',
-        component: GraphIndex
+        name: 'index',
+        redirect:"/graph"
     },
+    {
+        path:"/graph",
+        name:'graph',
+        component:GraphIndex
+    }
 
 ];
 

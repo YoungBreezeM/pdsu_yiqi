@@ -2,7 +2,7 @@
 export const option = {
     title: {
         textStyle:{color:'#92b1d8',fontSize:'15'},
-        text: '单位：万人'
+        text: '单位：人'
     },
     toolbox: {
         feature: {

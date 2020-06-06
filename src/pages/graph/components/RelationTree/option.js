@@ -1,3 +1,5 @@
+import da from "element-ui/src/locale/lang/da";
+
 var colors = [
     "#00ADD0",
     "#FFA12F",
@@ -10,51 +12,11 @@ var colors = [
     "#04FDB8",
     "#AF5AFF"
 ]
-var getdata = function getData() {
-    let data = {
-        name: "根节点1",
-        value: 0,
-        children: []
-    };
-    for (let i = 1; i <= 10; i++) {
-        let obj = {
-            name: "节点" + i,
-            value: i,
-            children: [],
-        };
-        for (let j = 1; j <= 5; j++) {
-            let obj2 = {
-                name: `节点1-${i}-${j}`,
-                value: 1 + "-" + i + "-" + j,
-            };
-            if (j % 2 == 1) {
-                obj2.children = []
-                for (let k = 1; k <= 3; k++) {
-                    let obj3 = {
-                        name: `节点1-${i}-${j}-${k}`,
-                        value: 1 + "-" + i + "-" + j + '-' + k,
-                    };
-                    obj2.children.push(obj3);
-                }
-            }
-
-            obj.children.push(obj2);
-        }
-
-        data.children.push(obj);
-    }
-    let arr = []
-    arr.push(data)
-    //
-    arr = handle(arr, 0)
-    console.log(arr);
-    return arr;
-}
-var handle = function handleData(data, index, color = '#00f6ff') {
+let handle = function handleData(data, index, color = '#00f6ff') {
     //index标识第几层
     return data.map((item, index2) => {
         //计算出颜色
-        if (index == 1) {
+        if (index === 1) {
             color = colors.find((item, eq) => eq == index2 % 10);
         }
         // 设置节点大小
@@ -96,7 +58,21 @@ var handle = function handleData(data, index, color = '#00f6ff') {
     })
 }
 
-export const option = {
+function treeFormat(data){
+    data.forEach(item=>{
+        item.name = item.xm+" "+item.xgh;
+        item.children = item.chirlden
+        if(item.chirlden&&item.chirlden.length>0){
+            treeFormat(item.chirlden)
+        }else{
+            delete item["chirlden"]
+        }
+    })
+    let rs = handle(data)
+    return rs
+}
+
+const option = {
     type: "tree",
     toolbox: { //工具栏
         show: true,
@@ -121,8 +97,8 @@ export const option = {
         {
             type: "tree",
             hoverAnimation: true, //hover样式
-            data: getdata(),
-            top: 0,
+            data: null,
+            top: -10,
             bottom: 0,
             left: 0,
             right: 0,
@@ -132,18 +108,19 @@ export const option = {
             nodePadding: 20,
             animationDurationUpdate: 750,
             expandAndCollapse: true, //子树折叠和展开的交互，默认打开
-            initialTreeDepth: 2,
+            initialTreeDepth: 10,
             roam: true, //是否开启鼠标缩放和平移漫游。scale/move/true
             focusNodeAdjacency: true,
             itemStyle: {
                 borderWidth: 1,
             },
             label: { //标签样式
-                color: "#fff",
+                color: "rgb(208,8,8)",
                 fontSize: 10,
                 fontFamily: "SourceHanSansCN",
-                position: "inside",
+                position: 'left',
                 rotate: 0,
+
             },
             lineStyle: {
                 width: 1,
@@ -151,4 +128,16 @@ export const option = {
             }
         }
     ]
+}
+
+
+
+export const initOptionFormat = (data)=>{
+   option.series[0].data = treeFormat([data])
+    return option;
+}
+
+export const setDefaultOption = (data)=>{
+    option.series[0].data = handle(data)
+    return option;
 }

@@ -20,9 +20,18 @@ import {
     Button,
     Dialog,
     Input,
-    DatePicker
+    DatePicker,
+    Tabs,
+    Table,
+    TabPane,
+    Select,
+    TableColumn,
+    Container,
+    Option
 } from 'element-ui';
 
+Vue.use(Option);
+Vue.use(Container);
 Vue.use(DatePicker);
 Vue.use(Input);
 Vue.use(Dialog);
@@ -30,6 +39,11 @@ Vue.use(Button);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Icon);
+Vue.use(Tabs);
+Vue.use(TabPane);
+Vue.use(Table);
+Vue.use(Select);
+Vue.use(TableColumn);
 
 Vue.prototype.$message = Message;
 
